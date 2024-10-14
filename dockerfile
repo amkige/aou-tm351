@@ -42,8 +42,9 @@ RUN service postgresql start && \
     su - postgres -c "psql -c \"CREATE USER $POSTGRES_USER WITH PASSWORD '$POSTGRES_PASSWORD';\"" && \
     su - postgres -c "createdb -O $POSTGRES_USER $POSTGRES_DB"
 
-# Copy notebooks
-ADD Notebooks /home/notebooks
+# Copy necessary files
+ADD dotfiles /home
+ADD notebooks /home/notebooks
 
 # Set Jupyter notebooks configuration
 RUN mkdir -p /home/.jupyter && \
