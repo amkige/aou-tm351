@@ -43,7 +43,7 @@ RUN service postgresql start && \
     su - postgres -c "createdb -O $POSTGRES_USER $POSTGRES_DB"
 
 # Copy notebooks
-ADD notebooks /home/notebooks
+ADD Notebooks /home/notebooks
 
 # Set Jupyter notebooks configuration
 RUN mkdir -p /home/.jupyter && \
