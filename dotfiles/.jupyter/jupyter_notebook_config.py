@@ -38,7 +38,7 @@
 #------------------------------------------------------------------------------
 
 ## Set the Access-Control-Allow-Credentials: true header
-#c.NotebookApp.allow_credentials = False
+c.NotebookApp.allow_credentials = True
 
 ## Set the Access-Control-Allow-Origin header
 #  
@@ -48,7 +48,7 @@
 
 #TH - this runs the noebook server in an insecure mode
 #TH - originally introduced to makes AWS nginx reverse proxy easier
-#c.NotebookApp.allow_origin = '*'
+c.NotebookApp.allow_origin = '*'
 
 ## Use a regular expression for the Access-Control-Allow-Origin header
 #  

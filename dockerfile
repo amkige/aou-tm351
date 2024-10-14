@@ -43,20 +43,14 @@ RUN service postgresql start && \
     su - postgres -c "createdb -O $POSTGRES_USER $POSTGRES_DB"
 
 # Copy necessary files
-ADD dotfiles /home
+ADD dotfiles /root
 ADD notebooks /home/notebooks
-
-# Set Jupyter notebooks configuration
-RUN mkdir -p /home/.jupyter && \
-    echo "c.NotebookApp.allow_origin = '*'" >> /home/.jupyter/jupyter_notebook_config.py && \
-    echo "c.NotebookApp.allow_credentials = True" >> /home/.jupyter/jupyter_notebook_config.py && \
-    echo "c.NotebookApp.token = ''" >> /home/.jupyter/jupyter_notebook_config.py
 
 # Expose necessary ports
 EXPOSE 27017 5432 8888
 
 # Start services and Jupyter
-CMD ["bash", "-c", "service postgresql start && mongod --fork --logpath /var/log/mongodb/mongod.log && jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --config=/home/.jupyter/jupyter_notebook_config.py --notebook-dir=/home/notebooks"]
+CMD ["bash", "-c", "service postgresql start && mongod --fork --logpath /var/log/mongodb/mongod.log && jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --notebook-dir=/home/notebooks"]
 
 # Set the working directory
 WORKDIR /home
