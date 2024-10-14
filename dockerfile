@@ -47,10 +47,10 @@ ADD dotfiles /root
 ADD notebooks /home/notebooks
 
 # Expose necessary ports
-EXPOSE 27017 5432 8888
+EXPOSE 27351 5432 8888
 
 # Start services and Jupyter
-CMD ["bash", "-c", "service postgresql start && mongod --fork --logpath /var/log/mongodb/mongod.log && jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --notebook-dir=/home/notebooks"]
+CMD ["bash", "-c", "service postgresql start && mongod --port 27351 --fork --logpath /var/log/mongodb/mongod.log && jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --notebook-dir=/home/notebooks"]
 
 # Set the working directory
 WORKDIR /home
