@@ -16,6 +16,11 @@ OU logo available to stylesheet at url('oulogo-56.jpg')
 }
 
 #header-container.container {height: 72px;}
+
+#ipython_notebook {
+	width: 200px;
+}
+
 #ipython_notebook img {
 	display: none
 }
@@ -26,7 +31,7 @@ a[title="dashboard"]::after {
 	top: 0;
 	width: 200px;
 	height: 70px;
-	background: url(aou-logo.png) no-repeat, white;
+	background: url(aou-logo.png) no-repeat;
 	background-size: contain
 }
 
