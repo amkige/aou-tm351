@@ -1,0 +1,48 @@
+/*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+
+/* OU Styling
+OU logo available to stylesheet at url('oulogo-56.jpg')
+*/
+
+.activity {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#header-container.container {height: 72px;}
+#ipython_notebook img {
+	display: none
+}
+
+a[title="dashboard"]::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 200px;
+	height: 70px;
+	background: url(aou-logo.png) no-repeat, white;
+	background-size: contain
+}
+
+.ou_comment_outer {
+    background-color: #eda7c3;
+}
+
+.ou_comment_prompt {
+    background-color: #f4cadb;
+}
+
+.ou_activity_outer {
+    background-color: #c8ecff;
+}
+
+
+.ou_activity_prompt {
+    background-color: #ecf6ff;
+}

@@ -1,0 +1,12 @@
+{
+  "load_extensions": {
+    "python-markdown/main": true,
+    "codefolding/main": true,
+    "spellchecker/main": true,
+    "rubberband/main": true,
+    "collapsible_headings/main": true,
+    "freeze/main": true,
+    "highlighter/highlighter": true,
+    "exercise/main": true
+  }
+}
