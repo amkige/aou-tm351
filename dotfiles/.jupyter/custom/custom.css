@@ -16,16 +16,18 @@ OU logo available to stylesheet at url('oulogo-56.jpg')
 }
 
 #header-container.container {height: 72px;}
-#ipython_notebook img{
-	/* http://stackoverflow.com/a/24633671/454773 */
-	display:block;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	background: url(oulogo-56.jpg) no-repeat;
-  	width: 83px; /* Width of new image */
-  	height: 56px; /* Height of new image */
-  	padding-left: 83px; /* Equal to width of new image */
+#ipython_notebook img {
+	display: none
+}
 
+a[title="dashboard"]::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 200px;
+	height: 70px;
+	background: url(aou-logo.png) no-repeat, white;
+	background-size: contain
 }
 
 .ou_comment_outer {
