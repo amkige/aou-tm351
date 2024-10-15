@@ -6,10 +6,6 @@ ENV POSTGRES_USER=test
 ENV POSTGRES_PASSWORD=test
 ENV POSTGRES_DB=tm351test
 
-COPY dotfiles /root
-COPY notebooks /home/notebooks
-COPY requirements.txt /home/requirements.txt
-
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     wget \
@@ -24,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+COPY requirements.txt /home/requirements.txt
 RUN pip3 install --no-cache-dir -r /home/requirements.txt
 
 # Install MongoDB
@@ -39,6 +36,9 @@ RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.0.asc | apt-key add -
 RUN service postgresql start && \
     su - postgres -c "psql -c \"CREATE USER $POSTGRES_USER WITH PASSWORD '$POSTGRES_PASSWORD';\"" && \
     su - postgres -c "createdb -O $POSTGRES_USER $POSTGRES_DB"
+
+COPY dotfiles /root
+COPY notebooks /home/notebooks
 
 EXPOSE 27351 5432 8888
 
