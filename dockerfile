@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     curl \
     git \
+    libgeos-dev \
+    msttcorefonts \
     python3 \
     python3-pip \
     python3-dev \
