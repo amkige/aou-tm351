@@ -50,6 +50,9 @@ RUN service postgresql start && \
 COPY config /root
 COPY notebooks /home/notebooks
 
+# Trust jupyter notebooks
+RUN jupyter trust /home/notebooks/**/*.ipynb
+
 # Expose necessary ports
 EXPOSE 8888
 
