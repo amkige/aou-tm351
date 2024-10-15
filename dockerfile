@@ -50,10 +50,11 @@ RUN service postgresql start && \
 
 # Copy config and notebooks
 COPY config /root
-COPY notebooks /home/notebooks
+ADD notebooks.tar.gz /home
 
-# Trust jupyter notebooks
-RUN jupyter trust /home/notebooks/**/*.ipynb
+# Enable nbextension and trust jupyter notebooks
+RUN jupyter contrib nbextension install --user && \
+    jupyter trust /home/notebooks/**/*.ipynb
 
 # Expose necessary ports
 EXPOSE 8888
