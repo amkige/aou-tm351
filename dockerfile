@@ -30,8 +30,8 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 # Install MongoDB
-RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.0.asc | apt-key add - && \
-    echo "deb [ arch=amd64 trusted=yes ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list && \
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-3.4.asc | apt-key add - && \
+    echo "deb [ arch=amd64 trusted=yes ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.4.list && \
     apt-get update && apt-get install -y --no-install-recommends mongodb-org && \
     mkdir -p /data/db && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
