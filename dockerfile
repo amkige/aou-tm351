@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     wget \
     curl \
+    unzip \
     git \
     libgeos-dev \
     msttcorefonts \
@@ -22,8 +23,15 @@ RUN apt-get update && apt-get install -y \
     python3-setuptools \
     postgresql \
     postgresql-contrib \
+    openjdk-8-jre-headless \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Download and install OpenRefine
+RUN wget https://github.com/OpenRefine/OpenRefine/releases/download/2.7-rc.2/openrefine-linux-2.7-rc.2.tar.gz \
+    && tar -xzf openrefine-linux-2.7-rc.2.tar.gz \
+    && mv openrefine-2.7-rc.2 /opt/openrefine \
+    && rm openrefine-linux-2.7-rc.2.tar.gz
 
 # Install Python dependencies
 COPY requirements.txt /tmp/requirements.txt
@@ -57,7 +65,9 @@ RUN jupyter contrib nbextension install --user && \
     jupyter trust /home/notebooks/**/*.ipynb
 
 # Expose necessary ports
-EXPOSE 8888
+EXPOSE 8888 3333
 
-# Start PostgreSQL, MongoDB, and Jupyter
-CMD ["bash", "-c", "service postgresql start && mongod --port 27351 --fork --logpath /dev/null && jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --notebook-dir=/home/notebooks"]
+COPY start.sh /root/start.sh
+RUN chmod +x /root/start.sh
+
+ENTRYPOINT /root/start.sh
