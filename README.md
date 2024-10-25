@@ -34,7 +34,7 @@
     </p>
   </li>
   <li>
-    <p>دوس على <strong>OPEN PORT</strong> واكتب <code>8888</code> ودوس <strong>OK</strong>
+    <p>دوس على <strong>OPEN PORT</strong> واكتب (<code>8888</code> لفتح Jupyter Notebook أو <code>3333</code> لفتح OpenRefine) ودوس <strong>OK</strong>
       <img src="https://github.com/user-attachments/assets/c57ff57f-c29e-4116-9f62-203a31b3b495" alt=""> وبكدا هيفتح معاك صفحة الـ notebooks <img src="https://github.com/user-attachments/assets/248e5feb-2fd0-4b87-a023-fc4fdf095986" alt="">
     </p>
   </li>
