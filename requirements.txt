@@ -8,7 +8,7 @@ beautifulsoup4==4.6.0
 bleach==2.0.0
 branca==0.2.0
 brewer2mpl==1.4.1
-chardet==2.3.0
+
 click==6.7
 click-plugins==1.0.3
 cligj==0.4.0
@@ -73,7 +73,7 @@ notebook==5.0.0
 numexpr==2.6.2
 numpy==1.12.1
 openpyxl==2.4.8
-pandas==0.20.2
+pandas==0.22.0
 pandasql==0.7.3
 pandocfilters==1.4.1
 parsedatetime==2.4
