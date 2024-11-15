@@ -59,7 +59,7 @@ RUN service postgresql start && \
 
 # Copy config and notebooks
 COPY config /root
-RUN git clone https://github.com/amkige/aou-tm351-notebooks /home/notebooks
+RUN git clone https://github.com/amkige/aou-tm351-notebooks /home/notebooks && echo "rev-3" > /dev/null
 
 # Enable nbextension and trust jupyter notebooks
 RUN jupyter contrib nbextension install --user && \
